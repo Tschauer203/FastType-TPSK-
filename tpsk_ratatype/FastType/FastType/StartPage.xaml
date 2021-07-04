@@ -1,0 +1,102 @@
+﻿<Page x:Class="FastType.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FastType"
+      mc:Ignorable="d" 
+      d:DesignHeight="930" d:DesignWidth="1200"
+      Title="Клавиатурный тренажер - Добро пожаловать!">
+
+    <Grid Background="#55c5ff">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="550"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image>
+                <Image.Style>
+                    <Style  TargetType="Image">
+                        <Setter Property="Source" Value="C:\Users\Гурочкин.Антон\Source\Repos\tpsk_ratatype\FastType\FastType\Img\finger.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=StartTypingBtn, Path=IsMouseOver}" Value="true">
+                                <Setter Property="Source" Value="C:\Users\Гурочкин.Антон\Source\Repos\tpsk_ratatype\FastType\FastType\Img\finger-2.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style x:Key="AcceptBtn" TargetType="Button">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Foreground" Value="#0e509e"/>
+                        <Setter Property="FontFamily" Value="./#Flow Ext"/>
+                        <Setter Property="FontSize" Value="30"/>
+                        <Setter Property="Width" Value="350"/>
+                        <Setter Property="Height" Value="70"/>
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,1" >
+                                    <GradientStop Color="#ffed2d" Offset="0"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border BorderThickness="3" BorderBrush="#7F2C93D4" CornerRadius="5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock  Text="Печатай быстрее" FontFamily="/FastType;component/#Flow Ext" FontSize="60" Foreground="White"/>
+                <TextBlock  Text="Научись быстро печатать с клавиатурным тренажером FastType А уроки слепой печати помогут тебе использовать все 10 пальцев" FontFamily="/FastType;component/#Flow Ext"  FontSize="25" TextWrapping="Wrap" Foreground="#FFFDFDFD" />
+                <Button Name="StartTypingBtn" Content="Начать печатать"  Style="{DynamicResource AcceptBtn}" HorizontalAlignment="Left" Click="StartTyping_Click" />
+            </StackPanel>
+        </Grid>
+        <Border Grid.Row="1" Background="White" CornerRadius="10">
+            <Grid>
+                <Grid.Resources>
+                    <Style x:Key="HeaderTbl" TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="35"/>
+                        <Setter Property="Foreground" Value="#28a4e8"/>
+                        <Setter Property="FontFamily" Value="./#Flow Ext"/>
+                    </Style>
+                    <Style x:Key="InfoTbl" BasedOn="{StaticResource HeaderTbl}" TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="#5c5c5c"/>
+                        <Setter Property="FontSize"  Value="25"/>
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                        <Setter Property="Margin" Value="0 5"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="20">
+                    <TextBlock Style="{DynamicResource HeaderTbl}">Научиться печатать вслепую</TextBlock>
+                    <TextBlock Style="{DynamicResource InfoTbl}">Ускорь прогресс обучения слепой печати с клавиатурным тренажером Ratatype и развивай ценные навыки набора текста!</TextBlock>
+                    <TextBlock>                     
+                            <Hyperlink NavigateUri="Education.xaml"  FontFamily="./#Flow Ext" FontSize="25" Foreground="#28a4e8">Узнай,как печатать вслепую</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="20">
+                    <TextBlock Style="{DynamicResource HeaderTbl}">Пройди тест скорости печати</TextBlock>
+                    <TextBlock Style="{DynamicResource InfoTbl}">Узнай свою скорость печати и удиви приятелей или руководство полученным сертификатом.</TextBlock>
+                    <TextBlock>                     
+                            <Hyperlink FontFamily="./#Flow Ext" FontSize="25" Foreground="#28a4e8">Перейти к тесту скорости печати</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

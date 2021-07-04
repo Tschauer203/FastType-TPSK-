@@ -1,0 +1,76 @@
+﻿<Page x:Class="FastType.Vxod"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FastType"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="900"
+      Title="Клавиатурный тренажер - Авторизация">
+
+    <Grid Background="#55c5ff">
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontFamily" Value="/EastType;component/Flow Ext"/>
+                <Setter Property="Foreground" Value="Blue"/>
+                <Setter Property="BorderThickness" Value="5"/>
+                <Setter Property="BorderBrush" Value="#7fffffff"/>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="Height" Value="60"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="5 0"/>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#ffed2d" Offset="0"/>
+                            <GradientStop Color="#ffde0e" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Войти" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30 0 0 0" Foreground="White"  />
+            <TextBox Grid.Row="1" Name="UserName" VerticalContentAlignment="Center"     Height="60" Width="700" HorizontalAlignment="Left" Margin="35 0 0 0 " FontSize="24"  FontFamily="./#Flow Ext" />
+            <PasswordBox Name="Password"  VerticalContentAlignment="Center"     Grid.Row="2"  Height="60" Width="700" HorizontalAlignment="Left" Margin="35 0 0 0 "  FontFamily="./#Flow Ext"  />
+
+
+            <TextBlock IsHitTestVisible="False" Text="Логин"   VerticalAlignment="Center"   Margin="46,61,465,62" Grid.Row="1"  >
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontFamily" Value="./#Flow Ext"/>
+                        <Setter Property="Foreground" Value="#FFC7C7C7"/>
+                        <Style.Triggers>
+                            <DataTrigger Value="" Binding="{Binding Text,ElementName=UserName}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock IsHitTestVisible="False" Text="Пароль" Foreground="Black"  VerticalAlignment="Center" FontSize="20" Margin="46,64,465,59" Grid.Row="2" />
+
+
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <Button x:Name="REG" Content="войти" Click="REG_Click"  Margin="30"   />
+                <TextBlock FontSize="20" Text="ИЛИ" Width="50" VerticalAlignment="Center" Margin="0 0 0 0" />
+                <TextBlock FontSize="25" VerticalAlignment="Center" Margin="15 0 0 0 " ><Hyperlink  NavigateUri="Registrarion.xaml"><Run Text="Регестрация"/></Hyperlink></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

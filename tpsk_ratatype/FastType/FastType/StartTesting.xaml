@@ -1,0 +1,74 @@
+﻿<Page x:Class="FastType.StartTesting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FastType"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Title="Клавиатурный тренажер - Тестирование">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="950"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Name="TrainGeBtn" Grid.Row="1" Grid.Column="4" Content="Заново" Click="TrainGeBtn_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="Height" Value="24"/>
+                    <Setter Property="Width" Value="120"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Foreground" Value="#a6cc2b"/>
+                    <Setter Property="FontFamily" Value="#Flow Ext"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source=""/>
+                                        <ContentPresenter Margin="10 5 0 0 " VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBlock Name="TypeTbl" Text="А может тебе дать еще ключ от квартиры, где деньги лежат? Автомобиль - это не роскошь, а средство передвижения. Лед тронулся, господа присяжные заседатели, лед тронулся! Утром деньги - вечером стулья, вечером деньги - ночью стулья. Позвольте! У меня все ходы записаны. Не корысти ради, а токмо волею пославшей мя жены. Ваше политическое кредо? Всегда! Я дам Вам парабеллум. Согласие есть продукт при полном непротивлении сторон." TextWrapping="Wrap" FontSize="24" Margin="10 50 15 0 "/>
+        <TextBox Name="TypeTb" Grid.Row="1" BorderBrush="#666666" BorderThickness="1" Margin="10 10 10 50 " FontFamily="/FastType;component/#Flow Ext" FontSize="24" TextWrapping="Wrap" TextChanged="TypeTb_TextChanged"   />
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel  Orientation="Horizontal" >
+                <Image Source="C:\Users\Гурочкин.Антон\Source\Repos\tpsk_ratatype\FastType\FastType\Img\speed.png" Margin="5,10" />
+                <TextBlock Text="Скорость"  VerticalAlignment="Center" FontWeight="Bold" FontSize="24"   />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2"  Orientation="Horizontal"  >
+                <Image Source="C:\Users\Гурочкин.Антон\Source\Repos\tpsk_ratatype\FastType\FastType\Img\accuracy.png"  Margin="5,10"/>
+                <TextBlock Text="Точность" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"      />
+            </StackPanel>
+            <TextBlock Text="100%"  Name="ResultAccuracyTbl" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Margin="10,14,0,14" FontWeight="Bold" Foreground="#55c5ff" />
+            <TextBlock Text="0" Name="ResultSpeedTbl"    Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="10,14,0,14" FontSize="24"   Foreground="#55c5ff" FontWeight="Bold" />
+            <TextBlock Text=" зн./мин"    Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="48,25,0,24" FontSize="24"   Foreground="#55c5ff" FontWeight="Bold" Width="93" />
+        </Grid>
+    </Grid>
+</Page>
